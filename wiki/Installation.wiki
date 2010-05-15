@@ -1,8 +1,6 @@
 #summary Installation instructions
 
-= Installing Google Chart PHP Library =
-
-== Installing from an archive ==
+= Installing from an archive =
 
 This is the simplest, and the recommended way for the majority of cases. However, if you want to try bleeding edge features or if you might want to try out [Installation#SVN_installation SVN installation]
 
@@ -10,13 +8,13 @@ This is the simplest, and the recommended way for the majority of cases. However
   * Extract the archive
   * Copy the content of `lib` folder inside your project. For example, you can create a directory `googlechartlibphp` and copy all the files from the `lib` folder inside it.
 
-=== Autoloading ===
+== Autoloading ==
 
 The library is compatible with autoloading features provided by popular frameworks such à Symfony or Zend Framework, as it doesn't override the autoload function.
 
 If you don't use autoloading, you'll have to manually `require` class files prior usage.
 
-== Installing from SVN ==
+= Installing from SVN =
 
 You can use the `svn:externals` property to automatically fetch the last revision inside a directory of your project.
 
