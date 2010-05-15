@@ -1,0 +1,185 @@
+#summary 10 minutes tutorial to understand Google Chart PHP Library
+
+= Introduction =
+
+Google Chart PHP Library is an object oriented library to create charts. It uses [http://code.google.com/intl/fr-FR/apis/chart/image_charts.html Google Chart API] as a backend, and therefore it is modelled after this API. Though you can use this library without knowing the whole Google Chart API, remember that you'll probably have to look at the Google Chart API documentation in order to use the most advanced features, and understand some advanced concepts (like Compound charts).
+
+= Installation =
+
+Download the last version of Google Chart PHP Library, and follow the [#Installation installation instructions]. Don't worry, it's very simple (basically just a copy & paste).
+
+= Creating your first chart =
+
+Charts are handled by the `GoogleChart` class. You'll figure out later that some chart types have their own specific sub-class (`GoogleMapChart`, `GoogleBarChart`) that offers more options, but let's start with a very basic chart.
+
+When you instanciate a new `GoogleChart`, you need to provide 3 parameters: chart type, width and height. What chart type using? Remember that this lib is modelled after Google Chart API? Well, you'll have to look at the [http://code.google.com/intl/fr-FR/apis/chart/docs/gallery/chart_gall.html Chart Gallery] in order to decide which one you want to use. For the moment, let's use `lc` which is a basic [http://code.google.com/intl/fr-FR/apis/chart/docs/gallery/line_charts.html#chart_types Line Chart] with 2 axis.
+
+Create a PHP file `example.php` containing this:
+
+{{{
+<?php
+
+// here the library is installed inside the lib folder, one level below the current file
+// change this to the path where you installed the library
+require '../lib/GoogleChart.php';
+
+$chart = new GoogleChart('lc', 500, 200);
+
+header('Content-Type: image/png');
+echo $chart;
+}}}
+
+Now publish it in a PHP environnent, open it in your browser, and you should see:
+
+http://chart.apis.google.com/chart?cht=lc&chs=500x200&nonsense=foo.png
+
+Interesting isn't it? Ok, it's a little bit empty. Now it's time to add data.
+
+= Adding Data =
+
+To add data to your chart, you need to add a data serie. You can add as many data series as you want. In a Line Chart, each data serie is a line.
+
+To create a data serie, you need to use `GoogleChartData` class. This class offers a lot a methods to customize your data serie (color, size, legend, scaling...). You can also take a look a [http://googlechartphplib.cloudconnected.fr/doc/classGoogleChartData.html GoogleChartData class reference] if you want to know more.
+
+Let's update our example file to create a random data serie of 10 points, with a custom size:
+
+{{{
+<?php
+
+// don't forget to update the path here
+require '../lib/GoogleChart.php';
+
+$chart = new GoogleChart('lc', 500, 200);
+
+// add one line
+$data = new GoogleChartData(array(49,74,78,71,40,39,35,20,50,61,45));
+$chart->addData($data);
+
+header('Content-Type: image/png');
+echo $chart;
+}}}
+
+Ok, it should looks a little better now:
+
+http://chart.apis.google.com/chart?cht=lc&chs=500x200&chd=t:49,74,78,71,40,39,35,20,50,61,45&chco=4D89F9&chls=2&nonsense=foo.png
+
+= Customizing Axis =
+
+The axis of our chart looks a little bit empty for the moment. We can customize them using `GoogleChartAxis` class. A chart support 4 types of axis (x, y, r (right) and t (top)), and can have more than one axis of the same type.
+
+The `GoogleChartAxis` class offers many methods to customize your chart. We'll use some of them to:
+
+  * Hide the y axis
+  * Display tick marks for the x axis
+
+Let's update our example file:
+
+{{{
+<?php
+
+// don't forget to update the path here
+require '../lib/GoogleChart.php';
+
+$chart = new GoogleChart('lc', 500, 200);
+
+// add one line
+$data = new GoogleChartData(array(49,74,78,71,40,39,35,20,50,61,45));
+$chart->addData($data);
+
+// customize y axis
+$y_axis = new GoogleChartAxis('y');
+$y_axis->setDrawTickMarks(false)->setLabels(array(0,50,100));
+$chart->addAxis($y_axis);
+
+// customize x axis
+$x_axis = new GoogleChartAxis('x');
+$x_axis->setTickMarks(5);
+$chart->addAxis($x_axis);
+
+header('Content-Type: image/png');
+echo $chart;
+}}}
+
+And now the ouput should look like that:
+
+http://chart.apis.google.com/chart?cht=lc&chs=500x200&chd=t:49,74,78,71,40,39,35,20,50,61,45&chco=4D89F9&chls=2&chxt=y,x&chxl=0:|0|50|100&chxtc=1,5&chxs=0,666666,11,1,l&nonsense=foo.png
+
+= Adding markers =
+
+Markers are basically everything that is not a chart option, a data serie or an axis. For examples, [http://code.google.com/intl/fr-FR/apis/chart/docs/chart_params.html#gcharts_shape_markers shape markers] allows you to display a shape on each points of a data serie, or only some points, or at a arbitrary fixed position in the chart, etc. [http://code.google.com/intl/fr-FR/apis/chart/docs/chart_params.html#gcharts_data_point_labels Text markers] allows you to display text on the chart, either fixed text or the data values of a data serie. Markers are also used in the creation of [http://code.google.com/intl/fr-FR/apis/chart/docs/gallery/compound_charts.html Compound chart], but this is a more advanced topic, and we only have 10 minutes in our Getting Started tutorial. For the moment, we'll add a basic shape marker to display a dot at each point of the data serie, and a text marker to display the value of each point of the data serie.
+
+To create a marker, you need to use a `GoogleChartMarker` class. Here we'll use `GoogleChartTextMarker` and `GoogleChartShapeMarker`. Markers class have to be loaded separetly, so don't forget to add the corrects `require`. You can take a look a [http://googlechartphplib.cloudconnected.fr/doc/classGoogleChartMarker.html `GoogleChartMarker` class reference] to know more about the differents subclasses and methods.
+
+We update the example file to:
+
+{{{
+<?php
+
+// don't forget to update the path here
+require '../lib/GoogleChart.php';
+require '../lib/markers/GoogleChartShapeMarker.php';
+require '../lib/markers/GoogleChartTextMarker.php';
+
+$chart = new GoogleChart('lc', 500, 200);
+
+// add one line
+$data = new GoogleChartData(array(49,74,78,71,40,39,35,20,50,61,45));
+$chart->addData($data);
+
+// customize y axis
+$y_axis = new GoogleChartAxis('y');
+$y_axis->setDrawTickMarks(false)->setLabels(array(0,50,100));
+$chart->addAxis($y_axis);
+
+// customize x axis
+$x_axis = new GoogleChartAxis('x');
+$x_axis->setTickMarks(5);
+$chart->addAxis($x_axis);
+
+// add a shape marker with a border
+$shape_marker = new GoogleChartShapeMarker(GoogleChartShapeMarker::CIRCLE);
+$shape_marker->setSize(6);
+$shape_marker->setBorder('ffffff', 2);
+$shape_marker->setData($data);
+$chart->addMarker($shape_marker);
+
+// add a value marker
+$value_marker = new GoogleChartTextMarker(GoogleChartTextMarker::VALUE);
+$value_marker->setData($data);
+$chart->addMarker($value_marker);
+
+header('Content-Type: image/png');
+echo $chart;
+}}}
+
+Now the chart should looks like:
+
+http://chart.apis.google.com/chart?cht=lc&chs=500x200&chd=t:49,74,78,71,40,39,35,20,50,61,45&chco=4D89F9&chls=2&chm=o,ffffff,0,-1,8|o,4D89F9,0,-1,6|N,4D89F9,0,-1,10&chxt=y,x&chxl=0:|0|50|100&chxtc=1,5&chxs=0,666666,11,1,l&nonsense=foo.png
+
+= Debugging a chart =
+
+What if you chart doesn't displays correctly? Weel, `GoogleChart` provides some method to help you debug a chart. Replace the 2 last lines of your example file by this:
+
+{{{
+if ( isset($_GET['debug']) ) {
+	var_dump($chart->getQuery());
+	echo $chart->validate();
+	echo $chart->toHtml();
+}
+else{
+	header('Content-Type: image/png');
+	echo $chart;
+}
+}}}
+
+Now, add `?debug=true` in the URL to display a debug version of your chart.
+
+= More =
+
+Ok, the 10 minutes are over I guess, this tutorial is now finished. You should have a good overview of how Google Chart PHP Library works now.
+
+To go further, you can:
+
+  * [http://googlechartphplib.cloudconnected.fr/doc Read the API Documentation] generated by Doxygen. It has plenty examples.
+  * [http://code.google.com/intl/fr-FR/apis/chart/docs/making_charts.html Read Google Chart API official documentation], to understand the main concepts (markers, compound charts, data scaling, ...)
+  * Read the examples inside the `examples` directory of the archive (see Downloads section)
