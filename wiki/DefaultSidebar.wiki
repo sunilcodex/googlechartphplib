@@ -1,9 +1,9 @@
-* User Topics
+  * User Topics
     * [Installation Installation]
     * [GettingStarted Getting Started]
     * [Autoscaling Guide to autoscaling]
-* Developer Topics
+  * Developer Topics
     * [Todo]
     * [UndocumentedFeatures]
     * [Links]
-* Releases
+  * Releases
