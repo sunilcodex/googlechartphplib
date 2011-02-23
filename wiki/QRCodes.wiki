@@ -1,0 +1,17 @@
+#summary QR Codes powered by Google Chart API
+
+= Example =
+
+{{{
+<?php
+require 'lib/GoogleQRCode.php';
+
+$chart = new GoogleQRCode(150, 150);
+
+$chart->setData('Hello world');
+
+header('Content-Type: image/png');
+echo $chart;
+}}}
+
+See http://code.google.com/apis/chart/docs/gallery/qr_codes.html
