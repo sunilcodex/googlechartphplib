@@ -1,16 +1,18 @@
   * User Topics
     * [Installation Installation]
     * [GettingStarted Getting Started]
-    * [LineChart Line charts]
-    * [BartChart Bar charts]
-    * [PieChart Pie charts]
+    * [LineChart Line chart]
+    * [BartChart Bar chart]
+    * [PieChart Pie chart]
+    * [MapChart Map]
     * Advanced Topics
       * [Autoscaling Guide to autoscaling]
     * Other charts and toys
-      * [DynamicIcons Dynamic Icons]
-      * [QRCodes QR Codes]
+        * [DynamicIcons Dynamic Icons]
+        * [QRCodes QR Code]
   * Developer Topics
     * [Todo]
     * [UndocumentedFeatures]
     * [Links]
   * Releases
+    * [Release0.5 0.5]

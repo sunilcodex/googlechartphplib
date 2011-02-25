@@ -1,8 +1,10 @@
 #summary 10 minutes tutorial to understand Google Chart PHP Library
 
+<wiki:toc/>
+
 = Introduction =
 
-Google Chart PHP Library is an object oriented library to create charts. It uses [http://code.google.com/intl/fr-FR/apis/chart/image_charts.html Google Chart API] as a backend, and therefore it is modelled after this API. Though you can use this library without knowing the whole Google Chart API, remember that you'll probably have to look at the Google Chart API documentation in order to use the most advanced features, and understand some advanced concepts (like Compound charts).
+Google Chart PHP Library is an object oriented library to create charts. It uses [http://code.google.com/apis/chart/docs/making_charts.html Google Chart API] as a backend, and therefore it is modelled after this API. Though you can use this library without knowing the whole Google Chart API, remember that you'll probably have to look at the Google Chart API documentation in order to use the most advanced features, and understand some advanced concepts (like Compound charts).
 
 = Installation =
 
