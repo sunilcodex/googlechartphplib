@@ -1,0 +1,5 @@
+#summary Standard features for the axis
+
+<wiki:toc/>
+
+= Legends =

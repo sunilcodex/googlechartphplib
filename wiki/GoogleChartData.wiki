@@ -1,0 +1,6 @@
+#summary Standard features for the data series
+
+<wiki:toc/>
+
+= Series colors =
+

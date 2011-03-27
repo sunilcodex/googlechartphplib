@@ -1,15 +1,18 @@
-  * User Topics
-    * [Installation Installation]
-    * [GettingStarted Getting Started]
+  * [Installation Installation]
+  * [GettingStarted Getting started]
+  * [GoogleChartAPI API features]
+  * [GoogleChart Chart features]
+  * [GoogleChartData Data series features]
+  * [GoogleChartAxis Axis features]
+  * [Autoscaling Guide to autoscaling]
+  * [http://googlechartphplib.cloudconnected.fr/doc/annotated.html API Documentation]
+  * Recipes
     * [LineChart Line chart]
     * [BartChart Bar chart]
     * [PieChart Pie chart]
     * [MapChart Map]
-    * Advanced Topics
-      * [Autoscaling Guide to autoscaling]
-    * Other charts and toys
-        * [DynamicIcons Dynamic Icons]
-        * [QRCodes QR Code]
+    * [DynamicIcons Dynamic Icons]
+    * [QRCodes QR Code]
   * Developer Topics
     * [Todo]
     * [UndocumentedFeatures]
