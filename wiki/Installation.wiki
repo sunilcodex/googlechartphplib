@@ -10,7 +10,7 @@ This is the simplest, and the recommended way for the majority of cases. However
 
 == Autoloading ==
 
-The library is compatible with autoloading features provided by popular frameworks such à Symfony or Zend Framework, as it doesn't override the autoload function.
+The library is compatible with autoloading features provided by popular frameworks such as Symfony or Zend Framework, as it doesn't override the autoload function.
 
 If you don't use autoloading, you'll have to manually `require` class files prior usage.
 
@@ -31,7 +31,7 @@ Note: On Windows, you can use the excellent client [http://tortoisesvn.net/downl
 If you want to tie your project to a specific release, use a the URL of a branche. Example:
 
 {{{
-http://googlechartphplib.googlecode.com/svn/branches/0.4
+http://googlechartphplib.googlecode.com/svn/branches/0.6
 }}}
 
 You can also synchronize with the trunk with the URL:
