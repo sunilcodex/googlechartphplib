@@ -1,10 +1,10 @@
   * [Installation Installation]
   * [GettingStarted Getting started]
-  * [GoogleChartAPI API features]
+  * [Autoscaling Guide to autoscaling]
+  * [GoogleChartAPI Base features]
   * [GoogleChart Chart features]
   * [GoogleChartData Data series features]
   * [GoogleChartAxis Axis features]
-  * [Autoscaling Guide to autoscaling]
   * [http://googlechartphplib.cloudconnected.fr/doc/annotated.html API Documentation]
   * Recipes
     * [LineChart Line chart]

@@ -1,6 +1,6 @@
 #summary Standard features for (almost) all the charts
 
-<wiki:toc/>
+<wiki:toc max_depth="1" />
 
 Those are the standard chart features available for a majority of the charts types.
 
@@ -53,7 +53,9 @@ The legend is a side section of the chart that gives a small text description of
 || `setLegendPosition($position)` || Set the position of the legend box. One of the following: 'b', 'bv', 't', 'tv', 'r', 'l'. See below. ||
 || `setLegendLabelOrder($label_order)` || Set the the label order. One of the following: 'l', 'r', 'a', or a list of numbers. See below. ||
 || setLegendSkipEmpty($skip_empty)` || By default, empty legends (without text) are not shown. You can disable this to display all the legends, even if not text was provided. ||
-|| setLegendSize($width, $height)` || Set the size of the legend box, in pixels. ||
+|| setLegendSize($size) || Size of the text, in pixels (default is 12) ||
+|| setLegendColor($color) || Color of the text, RRGGBB format (default is black) ||
+|| setLegendBoxSize($width, $height)` || Set the size of the legend box, in pixels. ||
 
 List of possible positions:
 
