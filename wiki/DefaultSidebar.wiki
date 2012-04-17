@@ -6,14 +6,16 @@
   * [GoogleChartData Data series features]
   * [GoogleChartAxis Axis features]
   * [http://googlechartphplib.cloudconnected.fr/doc/annotated.html API Documentation]
-  * Recipes
+  * Chart types
     * [LineChart Line chart]
     * [BartChart Bar chart]
     * [PieChart Pie chart]
+    * [ScatterChart Scatter chart]
     * [MapChart Map]
     * [DynamicIcons Dynamic Icons]
     * [QRCodes QR Code]
   * Developer Topics
+    * [LabelsLegends Labels and Legends]
     * [Todo]
     * [UndocumentedFeatures]
     * [Links]

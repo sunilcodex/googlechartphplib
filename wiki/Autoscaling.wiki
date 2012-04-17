@@ -4,7 +4,7 @@ Google Chart API is an awesome and powerful tool, but it can be sometimes cumber
 
 = What is data scaling? =
 
-When you specify a set of values, you expect that they will be scaled to fit into the chart. Think of a bar chart for example, if you specify a data serie (10, 20, 30), you might expect the maximum value of your chart to be 30. Another example, if you specify a data serie (100, 200, 300), you might except the maximum value to be 300. However, this is not how it works by default with Google Chart API. The values are not scaled to the actual range, but instead to a fixed range, which is different depending on the data format you're using.
+When you specify a set of values, you expect that they will be scaled to fit into the chart. Think of a bar chart for example, if you specify a data series (10, 20, 30), you might expect the maximum value of your chart to be 30. Another example, if you specify a data series (100, 200, 300), you might except the maximum value to be 300. However, this is not how it works by default with Google Chart API. The values are not scaled to the actual range, but instead to a fixed range, which is different depending on the data format you're using.
 
   * With Basic Text format (default format in version 0.4), range is (0,100). Values outside this range are truncated.
   * With Simple Encoding format, range is (0, 61). Values outside this range are truncated because they cannot be encoded  with the algorithm.
@@ -18,13 +18,13 @@ If you want to know more about the default behavior of Google Chart API, you sho
 
 = Global scale for the chart (aka "One scale to rule them all") =
 
-This is the simplest behavior: the chart only has one global scale, and all data series are bound to the same range. This works well if you have only one data serie, or if all the data series uses the same scale.
+This is the simplest behavior: the chart only has one global scale, and all data series are bound to the same range. This works well if you have only one data series, or if all the data series uses the same scale.
 
 == Autoscaling by values ==
 
 The default behavior of Google Chart PHP Library is to compute a global scale base on the range of all the data series.
 
-For example, if you have a data serie (10, 10, 20) and a data serie (-10, 20, 50), the global scale will be (-10, 50).
+For example, if you have a data series (10, 10, 20) and a data series (-10, 20, 50), the global scale will be (-10, 50).
 
 Example:
 
@@ -105,13 +105,13 @@ $chart->addData($data2);
 </tr>
 </table>
 
-= Per-data scales =
+= Per-series scales =
 
-Sometimes you'll need to display multiple data series with very different ranges. Then your need one scale per data serie.
+Sometimes you'll need to display multiple data series with very different ranges. Then your need one scale per data series.
 
 == Autoscaling by values ==
 
-The default behavior for Google Chart PHP Library when global autoscaling is disabled is to compute a different scale for each data serie.
+The default behavior for Google Chart PHP Library when global autoscaling is disabled is to compute a different scale for each data series.
 
 Example:
 
@@ -162,7 +162,7 @@ $chart->addData($data2);
 </tr>
 </table>
 
-Now the chart uses two differents scale : (0,30) for the first data serie (yellow line) and (0,5000) for the second (blue line). When using different scale it's a good idea to uses multiple Y axis, or combine a Y axis and a R axis.
+Now the chart uses two differents scale : (0,30) for the first data series (yellow line) and (0,5000) for the second (blue line). When using different scale it's a good idea to uses multiple Y axis, or combine a Y axis and a R axis.
 
 == Manual scaling ==
 
